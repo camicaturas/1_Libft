@@ -1,43 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 11:32:44 by cberneri          #+#    #+#             */
-/*   Updated: 2023/09/14 21:49:24 by cberneri         ###   ########.fr       */
+/*   Created: 2023/06/08 16:09:57 by cberneri          #+#    #+#             */
+/*   Updated: 2023/09/14 19:44:11 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	unsigned int	i;
+	t_list	*temp;
 
-	if (s && f)
+	if (*lst == NULL)
 	{
-		i = 0;
-		while (s[i])
+		*lst = new;
+	}
+	else
+	{
+		temp = *lst;
+		while (temp->next != NULL)
 		{
-			(*f)(i, &s[i]);
-			i++;
+			temp = temp->next;
 		}
+		temp->next = new;
 	}
 }
-
-/*
-void print_char_and_index(unsigned int index, char *c)
-{
-	printf("Character at index %u is: %c\n", index, *c);
-}
-
-int main()
-{
-	char my_string[] = "Hello, World!";
-	ft_striteri(my_string, print_char_and_index);
-	return 0;
-}
-
-*/

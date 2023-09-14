@@ -1,43 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 11:32:44 by cberneri          #+#    #+#             */
-/*   Updated: 2023/09/14 21:49:24 by cberneri         ###   ########.fr       */
+/*   Created: 2023/06/08 16:09:57 by cberneri          #+#    #+#             */
+/*   Updated: 2023/09/14 19:28:05 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+t_list	*ft_lstlast(t_list *lst)
 {
-	unsigned int	i;
-
-	if (s && f)
-	{
-		i = 0;
-		while (s[i])
+		while (lst)
 		{
-			(*f)(i, &s[i]);
-			i++;
+			if (!lst->next)
+				return (lst);
+			lst = lst->next;
 		}
-	}
+		return (lst);
 }
-
-/*
-void print_char_and_index(unsigned int index, char *c)
-{
-	printf("Character at index %u is: %c\n", index, *c);
-}
-
-int main()
-{
-	char my_string[] = "Hello, World!";
-	ft_striteri(my_string, print_char_and_index);
-	return 0;
-}
-
-*/

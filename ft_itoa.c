@@ -6,7 +6,7 @@
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:14:37 by cberneri          #+#    #+#             */
-/*   Updated: 2023/09/11 21:03:26 by cberneri         ###   ########.fr       */
+/*   Updated: 2023/09/12 13:52:02 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 //saco el total de digitos que tiene el numero
 static size_t	totaldigits(int n)
 {
-	size_t	i;
+	int	len;
 
-	i = 1;
-	//do while n divided by 10 is not zero
-	while (n /= 10)
-		i++;
-	return (i);
+	len = 0;
+	if (n < 1)
+		len++;
+	while (n)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
 }
 
 // le doy espacio al string con malloc
@@ -42,6 +46,7 @@ static long long	absnum(long long n)
 {
 	long long	num;
 
+	//convierto el numero a positivo
 	num = 1;
 	if (n < 0)
 		num *= -n;
@@ -50,33 +55,21 @@ static long long	absnum(long long n)
 	return (num);
 }
 
-
-
-
 char	*ft_itoa(int n)
 {
 	char		*string;
-	long int	num;
+	unsigned int	num;
 	int			sign;
 	int			length;
-	
-	num = n;
+
 	sign = 0;
-	
 	if (n < 0)
 		sign = 1;
-	if (n == -2147483648)
-		return ("-2147483648");
-	//convierto el numero a positivo
-	if (n < 0)
-	{
-		sign = 1;
-		num *= -1;
-	}
-	
+
 	length = totaldigits(n);
 	string = newstring(length);
-	
+	if (!string)
+		return (NULL);
 	//string + length is a pointer to the location
 	//where the null character should be placed
 	*(string + length) = '\0';
@@ -119,10 +112,10 @@ char	*ft_itoa(int n)
 */
 
 }
-/*
+
 int main()
 {
-	int a=54325;
+	int a=154325;
 	//char buffer[20];
 	//itoa(a,buffer,2);   // here 2 means binary
 	printf("value = %s\n", ft_itoa(a));
@@ -139,8 +132,8 @@ int main()
 	return 0;
 
 }
-*/
 
+/*
 int	main(void)
 {
 	int i = 0;
@@ -152,7 +145,7 @@ int	main(void)
 
 }
 
-
+*/
 
 
 /*

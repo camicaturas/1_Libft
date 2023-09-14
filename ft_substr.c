@@ -6,36 +6,28 @@
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:32:44 by cberneri          #+#    #+#             */
-/*   Updated: 2023/09/11 14:20:21 by cberneri         ###   ########.fr       */
+/*   Updated: 2023/09/12 13:18:28 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//ROBADA DE INTERNET, CHECAR
 char *ft_substr(char const *s, unsigned int start,size_t len)
 {
-/*
-/// NO PUDE HACER ESTA FUNCION
-	char	*mem;
-	size_t	i;
+	/*
+	char	*ret;
 
-	i = 0;
-
-	if (malloc(len) == NULL)
-		return (NULL);
-	
-	
-	//mem = malloc(len);
-	
-	//ft_strlen(s);
-
-	while (i < nmemb * len)
-	{
-		mem[i] = 0;
-		i++;
-	}
-
-	return (mem);
+	if (!s)
+		return (0);
+	if (ft_strlen(s) < start)
+		len = 0;
+	if (ft_strlen(s + start) < len)
+		len = ft_strlen(s + start);
+	ret = malloc(sizeof(char) * (len + 1));
+	if (!ret)
+		return (0);
+	ft_strlcpy(ret, s + start, len + 1);
+	return (ret);
 */
 }
 /*
