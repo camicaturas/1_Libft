@@ -6,7 +6,7 @@
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:14:37 by cberneri          #+#    #+#             */
-/*   Updated: 2023/09/04 14:32:28 by cberneri         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:37:06 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 int	ft_isdigit(int digit)
 {
-		if (digit >= '0' && digit <= '9')
-			return 1;
-		return 0;
+	if (digit >= '0' && digit <= '9')
+		return (1);
+	return (0);
 }
+
 /*
 int main(void)
 {

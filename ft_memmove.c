@@ -6,34 +6,23 @@
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:14:37 by cberneri          #+#    #+#             */
-/*   Updated: 2023/09/06 17:48:29 by cberneri         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:15:04 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// no entiendo muy bien el codigo, revisar luego porque ahora tengo suenio, escpecialmente la parte de los ifs
-
-//copies n characters from str2 to str1, but for overlapping memory blocks, memmove() is a safer approach than memcpy().
-//This function returns a pointer to the destination, which is str1.
-
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-
-	unsigned char	*ptrdest;
+	unsigned char		*ptrdest;
 	const unsigned char	*ptrsrc;
-	size_t 	i;
+	size_t				i;
 
 	ptrdest = (unsigned char *)dest;
 	ptrsrc = (unsigned char *)src;
-
-
 	i = 0;
-	
 	if (!dest && !src)
 		return (NULL);
-
-
 	if (ptrsrc < ptrdest)
 	{
 		while (++i <= n)
@@ -43,11 +32,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	{
 		while (n-- > 0)
 			*(ptrdest++) = *(ptrsrc++);
-	
-	}		
-		return (dest);
-	
-
+	}
+	return (dest);
 }
 
 /*

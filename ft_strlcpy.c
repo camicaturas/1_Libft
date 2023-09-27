@@ -6,21 +6,18 @@
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:09:57 by cberneri          #+#    #+#             */
-/*   Updated: 2023/09/05 18:33:08 by cberneri         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:17:56 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//XXXXXXXXXXXXXXXXXXXXXX
-// revisar esta funcion porque es muy complicada y la saque de git
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	unsigned int	i;
 
-
-	if(size == 0)
-		return(ft_strlen(src));
+	if (size == 0)
+		return (ft_strlen(src));
 	i = 0;
 	while (src[i] != '\0' && i < (size - 1))
 	{

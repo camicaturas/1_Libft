@@ -6,31 +6,28 @@
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:09:57 by cberneri          #+#    #+#             */
-/*   Updated: 2023/09/06 19:37:14 by cberneri         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:23:26 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//locates the first occurrence of the null-terminated string little in the string big
-//where not more than len characters are searched. Characters that appear after a character are not searched
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
-	int		j;
+	size_t	j;
 
 	j = 0;
 	i = 0;
-
-	if (!big || !little)
+	if ((!big || !little) && len == 0)
 		return (NULL);
-	if (!little || !little[0])
+	if (little[0] == '\0')
 		return ((char *)big);
 	i = 0;
 	while (big[i] && i < len)
 	{
 		j = 0;
-		while (big[i + j] && little[j] && i + j < len 
+		while (big[i + j] && little[j] && i + j < len
 			&& big[i + j] == little[j])
 			j++;
 		if (!little[j])
@@ -39,29 +36,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-
-
-/*
-char *strnstr(const char *haystack, const char *needle, size_t len)
-{
-	int i;
-	size_t needle_len;
-
-	if (0 == (needle_len = strnlen(needle, len)))
-		return (char *)haystack;
-
-	for (i=0; i<=(int)(len-needle_len); i++)
-	{
-		if ((haystack[0] == needle[0]) &&
-			(0 == strncmp(haystack, needle, needle_len)))
-		return (char *)haystack;
-
-		haystack++;
-	}
-	return NULL;
-}
-*/
-
 
 /*
 int main ()

@@ -6,17 +6,16 @@
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:14:37 by cberneri          #+#    #+#             */
-/*   Updated: 2023/09/07 15:12:18 by cberneri         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:20:16 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned	int i;
-	char	*memdest;
-
+	unsigned int		i;
+	char				*memdest;
 
 	if (!s)
 		return (NULL);
@@ -24,19 +23,14 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (memdest == NULL)
 		return (NULL);
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
 		memdest[i] = f(i, s[i]);
 		i++;
 	}
-
 	memdest[i] = '\0';
 	return (memdest);
 }
-
-
-
-
 /*
 char modify_char(unsigned int index, char c)
 {

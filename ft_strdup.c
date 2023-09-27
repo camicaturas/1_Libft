@@ -6,27 +6,22 @@
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:14:37 by cberneri          #+#    #+#             */
-/*   Updated: 2023/08/25 14:50:27 by cberneri         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:10:48 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//returns a pointer to a new string which is a duplicate of the string s.
-//Memory for the new string is obtained with malloc(3), and can be freed with free(3).
-// On success, the strdup() function returns a pointer to the duplicated string.
-//It returns NULL if insufficient memory was available, with errno set to indicate the cause of the error.
-
-char *ft_strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
-	char *ptr;
+	char	*ptr;
 
-	if (!(ptr = malloc(ft_strlen(s) + 1)))
+	ptr = (char *)malloc(ft_strlen(s) + 1);
+	if (ptr == NULL)
 		return (NULL);
 	ft_memcpy(ptr, s, ft_strlen(s) + 1);
-		return (ptr);
+	return (ptr);
 }
-
 
 /*
 int main()

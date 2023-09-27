@@ -6,29 +6,25 @@
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:14:37 by cberneri          #+#    #+#             */
-/*   Updated: 2023/09/04 14:33:14 by cberneri         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:16:02 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//copies the character c (an unsigned char) to the first n characters of the string pointed to, by the argument str.
 void	*ft_memset(void *str, int c, size_t n)
 {
-
 	unsigned char	*ptr;
-	size_t 	i;
+	size_t			i;
 
 	ptr = (unsigned char *)str;
 	i = 0;
- 	
-	while(i < n)
+	while (i < n)
 	{
 		ptr[i] = (unsigned char)c;
 		i++;
 	}
-
-return (str);
+	return (str);
 }
 /*
 int main(void)

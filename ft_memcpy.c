@@ -6,27 +6,21 @@
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:14:37 by cberneri          #+#    #+#             */
-/*   Updated: 2023/08/25 14:32:29 by cberneri         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:12:46 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//copies n characters from memory area src to memory area dest.
-//This function returns a pointer to destination, which is str1.
-
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-
 	unsigned char	*ptrsrc;
 	unsigned char	*ptrdes;
-	size_t 	i;
-
-	ptrsrc = (unsigned char *)src;
-	ptrdes = (unsigned char *)dest;
+	size_t			i;
 
 	i = 0;
-	
+	ptrsrc = (unsigned char *)src;
+	ptrdes = (unsigned char *)dest;
 	if (!dest && !src)
 		return (NULL);
 	while (i < n)
@@ -34,8 +28,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		ptrdes[i] = ptrsrc[i];
 		i++;
 	}
-		return (dest);
-
+	return (dest);
 }
 
 /*

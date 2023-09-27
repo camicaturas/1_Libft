@@ -6,35 +6,31 @@
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:09:57 by cberneri          #+#    #+#             */
-/*   Updated: 2023/09/05 17:20:13 by cberneri         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:22:03 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//compares at most the first n bytes of str1 and str2.
-int ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned char	*ptr1;
 	unsigned char	*ptr2;
-	size_t 	i;
+	size_t			i;
 
 	ptr1 = (unsigned char *)s1;
 	ptr2 = (unsigned char *)s2;
 	i = 0;
-	
 	while ((ptr1[i] || ptr2[i]) && i < n)
 	{
 		if ((ptr1[i] - ptr2[i]) < 0)
 			return (-1);
-		else if((ptr1[i] - ptr2[i]) > 0)
+		else if ((ptr1[i] - ptr2[i]) > 0)
 			return (1);
 		i++;
 	}
-		return (0);
+	return (0);
 }
-
-
 /*
 int main () {
    char str1[15];

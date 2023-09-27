@@ -6,7 +6,7 @@
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:14:37 by cberneri          #+#    #+#             */
-/*   Updated: 2023/08/18 18:03:25 by cberneri         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:35:48 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char *ptr;
+	unsigned char	*ptr;
 
-	ptr = (unsigned char*)s;
+	ptr = (unsigned char *)s;
 	while (n-- > 0)
-	{
 		*(ptr++) = 0;
-	}
-	//printf("Resulting string: %s\n", ptr);
 }
 
 /*

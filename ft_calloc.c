@@ -6,38 +6,32 @@
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:14:37 by cberneri          #+#    #+#             */
-/*   Updated: 2023/09/04 13:56:10 by cberneri         ###   ########.fr       */
+/*   Updated: 2023/09/26 13:28:51 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-//allocates memory for an array of nmemb elements of size bytes each and returns a pointer to the allocated memory.
-//The memory is set to zero.  If nmemb or size is 0, then calloc() returns either NULL, or a unique pointer value that can later be successfully passed to free().
-//If the multiplication of nmemb and size would result in integer overflow, then calloc() returns an error.   By  contrast,  an  integer
-//overflow would not be detected in the following call to malloc(), with the result that an incorrectly sized block of memory would be allocated:
-//malloc(nmemb * size);
-
-void *ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char	*mem;
-	size_t	i;
-
-	i = 0;
+	void	*mem;
+	size_t	max;
 
 	if (nmemb == 0 || size == 0)
-		return (malloc(0));
-	mem = malloc(nmemb * size);
-	if (mem == NULL)
-		return (NULL);
-	while (i < nmemb * size)
 	{
-		mem[i] = 0;
-		i++;
+		mem = malloc(0);
+		return (mem);
 	}
+	max = nmemb * size;
+	if (max / nmemb != size)
+		return (NULL);
+	mem = malloc(nmemb * size);
+	if (!mem)
+		return (NULL);
+	ft_bzero(mem, size * nmemb);
 	return (mem);
 }
+
 /*
 int main()
 {

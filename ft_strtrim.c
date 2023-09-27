@@ -6,7 +6,7 @@
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:14:37 by cberneri          #+#    #+#             */
-/*   Updated: 2023/09/13 14:29:18 by cberneri         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:11:04 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,16 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*memdest;
-	int	i;
-//	size_t	j;
-	int totalchars;
+	char	*newstr;
+	size_t	i;
 
-	i = 0;
-	//j = 0;
-	
 	if (!s1 || !set)
 		return (NULL);
-
-	totalchars = ft_strlen(s1);
-		printf("totalchars %d\n", totalchars);
-
-		
-	while(ft_strchr(set, s1[i]) && *s1 !='\0')
-	{
-		printf("encontrado\n");
-		i++;
-		/*
-		if(s1[i] == set[j])
-			s1[i] == "";
-		i++;
-		j++;
-		*/
-	}	
-
-
-	memdest = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(set) + 1));
-	if (memdest == NULL)
-		return (NULL);
-	
-
-	
-
-	return (memdest);
-
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	i = ft_strlen(s1);
+	while (i && ft_strchr(set, s1[i]))
+		i--;
+	newstr = ft_substr(s1, 0, i + 1);
+	return (newstr);
 }
-/*
-int main(void)
-{
-	ft_strtrim("camilo", "cc");
-}
-*/

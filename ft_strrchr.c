@@ -6,32 +6,26 @@
 /*   By: cberneri < cberneri@student.42prague.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:09:57 by cberneri          #+#    #+#             */
-/*   Updated: 2023/08/21 16:42:45 by cberneri         ###   ########.fr       */
+/*   Updated: 2023/09/26 17:20:31 by cberneri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//strrchr searches for the last occurrence of the character c (an unsigned char) in the string pointed to, by the argument str.
-
 char	*ft_strrchr(const char *str, int c)
 {
-	unsigned char	*ptr;
-	int 	i;
+	size_t	i;
 
-	ptr = (unsigned char *)str;
-	i = strlen(str); 
-	while (i >= 0)
+	i = ft_strlen(str);
+	if (c == '\0')
+		return ((char *)&str[i]);
+	while (i > 0)
 	{
-		if(ptr[i] == c)
-		{
-			return ((char *)&ptr[i]);
-		}
 		i--;
+		if (str[i] == (char)c)
+			return ((char *)&str[i]);
 	}
-
-return (NULL);
-
+	return (NULL);
 }
 /*
 int main()
